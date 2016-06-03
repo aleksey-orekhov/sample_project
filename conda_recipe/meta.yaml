@@ -1,0 +1,109 @@
+##### ENV VARS that must be set prior to build
+# PKG_VER - 0.0.1 etc
+# PKG_TYPE - a, b, rc1, rc2, etc
+
+
+### PKG_TYPE tells us the stage of the release cycle we are in
+# a for alpha
+# b for beta
+# rc1 for release candidate 1
+# see https://en.wikipedia.org/wiki/Software_release_life_cycle
+
+
+package:
+  name: sample_project
+  version: {PKG_VER}{PKG_TYPE}
+
+
+##### source outlines where the package data is obtained. Uncomment only ONE of these.
+
+### local filesystem
+#source:
+#  fn:  boost_1_60_0.tar.bz2
+#  url: http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.bz2
+#  md5: 65a840e1a0b13a558ff19eeb2c4f0cbe
+
+### webserver
+#source:
+#  fn:  boost_1_60_0.tar.bz2
+#  url: http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.bz2
+#  md5: 65a840e1a0b13a558ff19eeb2c4f0cbe
+
+### remote version control (svn)
+#source:
+#  fn:  boost_1_60_0.tar.bz2
+#  url: http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.bz2
+#  md5: 65a840e1a0b13a558ff19eeb2c4f0cbe
+
+### remote version control (git)
+#source:
+#  fn:  boost_1_60_0.tar.bz2
+#  url: http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.bz2
+#  md5: 65a840e1a0b13a558ff19eeb2c4f0cbe
+
+### local version control (git)
+#source:
+#  fn:  boost_1_60_0.tar.bz2
+#  url: http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.bz2
+#  md5: 65a840e1a0b13a558ff19eeb2c4f0cbe
+
+
+
+##### build is... <TODO NEEDS MORE DOCUMENTATION!!!>
+build:
+  features:
+    - vc9               [win and py27]
+    - vc10              [win and py34]
+    - vc14              [win and py35]
+
+##### Requirements. We specify what packages we depend on in various operating systems here.
+requirements:
+
+  ### Packages that must be installed for us to build this package
+  build:
+    - python
+    - icu               [unix]
+    - bzip2             [unix]
+    - zlib
+
+  ### Packages that must be installed for us to run this module
+  run:
+    # python dependency is here due to libboost-python library that depends on
+    # python version
+    - python
+    - icu               [unix]
+    - zlib
+
+test:
+  # Test that these modules are importable
+  imports:
+    - sympy
+    - sympy.assumptions
+    - sympy.assumptions.handlers
+    - sympy.assumptions.tests
+    - sympy.calculus
+    - sympy.calculus.tests
+
+  # TODO test using pytest cov?
+  #commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+  # TODO demo run_test.py
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # todo why do test requirements go here!?!?
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://www.boost.org/
+  license: Boost-1.0
+  summary: 'Computer algebra system (CAS) in Python'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
+
