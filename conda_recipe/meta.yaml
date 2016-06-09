@@ -12,7 +12,7 @@
 
 package:
   name: sample_project
-  version: {PKG_VER}{PKG_TYPE}
+  version: {PKG_VER}
 
 
 ##### source outlines where the package data is obtained. Uncomment only ONE of these.
@@ -20,7 +20,7 @@ package:
 # then, the build script (build.bat or build.sh depending on the OS) will be executed in that
 # directory to build the software.
 
-
+### local filesystem http://conda.pydata.org/docs/build_tutorials.html
 #source:
 ##### local filesystem
 #  fn:  boost_1_60_0.tar.bz2
@@ -73,10 +73,12 @@ package:
 
 ##### build is... <TODO NEEDS MORE DOCUMENTATION!!!>
 build:
+  # TODO Advanced Usage. might change
   features:
     - vc9               [win and py27]
     - vc10              [win and py34]
     - vc14              [win and py35]
+
 
 ##### Requirements. We specify what packages we depend on in various operating systems here.
 requirements:
@@ -84,9 +86,11 @@ requirements:
   ### Packages that must be installed for us to build this package
   build:
     - python
-    - icu               [unix]
-    - bzip2             [unix]
-    - zlib
+    - setuptools
+    # replace with modules your package needs during build.
+#    - icu               [unix]
+#    - bzip2             [unix]
+#    - zlib
 
   ### Packages that must be installed for us to run this module
   run:
@@ -106,6 +110,8 @@ test:
     - sympy.calculus
     - sympy.calculus.tests
 
+  # todo test suite could take a long time to run use jinja2 to turn tests on and off?
+  #
   # TODO test using pytest cov?
   #commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -115,10 +121,11 @@ test:
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
 
-  # todo why do test requirements go here!?!?
+  # todo lists packages required only for testing
   # requires:
     # Put any additional test requirements here.  For example
     # - nose
+    # - pytest >= 2.7
 
 about:
   home: http://www.boost.org/
