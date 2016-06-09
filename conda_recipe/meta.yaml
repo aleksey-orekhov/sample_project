@@ -16,36 +16,58 @@ package:
 
 
 ##### source outlines where the package data is obtained. Uncomment only ONE of these.
+# The data source files will be copied from the provided location into the build directory
+# then, the build script (build.bat or build.sh depending on the OS) will be executed in that
+# directory to build the software.
 
-### local filesystem
+
 #source:
+##### local filesystem
 #  fn:  boost_1_60_0.tar.bz2
 #  url: http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.bz2
 #  md5: 65a840e1a0b13a558ff19eeb2c4f0cbe
+# todo document patches
+#  patches:
+#      - my.patch # the patch file is expected to be found in the recipe
 
 ### webserver
-#source:
 #  fn:  boost_1_60_0.tar.bz2
 #  url: http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.bz2
 #  md5: 65a840e1a0b13a558ff19eeb2c4f0cbe
+# todo document patches
+#  patches:
+#      - my.patch # the patch file is expected to be found in the recipe
 
 ### remote version control (svn)
-#source:
-#  fn:  boost_1_60_0.tar.bz2
-#  url: http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.bz2
-#  md5: 65a840e1a0b13a558ff19eeb2c4f0cbe
+#  svn_url: https://github.com/ilanschnell/bsdiff
+#  svn_rev: 1.1.4
+#  svn_ignore_externals: True # (defaults to False)
+# todo document patches
+#  patches:
+#      - my.patch # the patch file is expected to be found in the recipe
+
+### remote version control (hg) mercurial
+#  hg_url: ssh://hg@bitbucket.org/ilanschnell/bsdiff4
+#  hg_tag: release/1.1.4
+# todo document patches
+#  patches:
+#      - my.patch # the patch file is expected to be found in the recipe
 
 ### remote version control (git)
-#source:
-#  fn:  boost_1_60_0.tar.bz2
-#  url: http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.bz2
-#  md5: 65a840e1a0b13a558ff19eeb2c4f0cbe
+#  git_url: https://github.com/ilanschnell/bsdiff4.git
+#  git_rev: release/1.1.4
+# here, release/1.1.4 is the name of a branch or tag
+# todo document patches
+#  patches:
+#      - my.patch # the patch file is expected to be found in the recipe
 
 ### local version control (git)
-#source:
-#  fn:  boost_1_60_0.tar.bz2
-#  url: http://sourceforge.net/projects/boost/files/boost/1.60.0/boost_1_60_0.tar.bz2
-#  md5: 65a840e1a0b13a558ff19eeb2c4f0cbe
+#  git_url: https://github.com/ilanschnell/bsdiff4.git
+#  git_rev: release/1.1.4
+# here, release/1.1.4 is the name of a branch or tag
+# todo document patches
+#  patches:
+#      - my.patch # the patch file is expected to be found in the recipe
 
 
 
