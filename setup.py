@@ -1,4 +1,4 @@
-# pasted from https://pythonhosted.org/an_example_pypi_project/setuptools.html
+
 import os
 from setuptools import setup
 
@@ -6,7 +6,7 @@ from setuptools import setup
 setup(
     name="sample_project",
     version="0.0.1",
-    author ="Alex O",
+    author="Alex O",
     author_email="alexo@domain.com",
     description=("Example of good python project structure"),
     license="",
